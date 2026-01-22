@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 
-app = Flask(__name__, template_folder='../templates', static_folder='../static')git add .
+app = Flask(__name__, template_folder='../templates', static_folder='../static')
 # Step 1: Data Setup
 # We are creating a list of dictionaries to store your project details.
 projects_data = [
