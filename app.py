@@ -1,7 +1,7 @@
 from flask import Flask, render_template
+import os
 
-app = Flask(__name__, template_folder='../templates', static_folder='../static')# Step 1: Data Setup
-# We are creating a list of dictionaries to store your project details.
+app = Flask(__name__)
 projects_data = [
     {
         "title": "E-commerce Sales Analytics",
@@ -29,14 +29,9 @@ projects_data = [
     }
 ]
 
-# Step 2: Route Definition
-# This function tells Flask to show 'index.html' when someone visits your home page.
 @app.route('/')
 def home():
     return render_template('index.html', projects=projects_data)
-import os
 
 if __name__ == '__main__':
-    # Render ya dusri hosting ke liye port dynamic hona chahiye
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(debug=True)
