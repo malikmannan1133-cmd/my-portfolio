@@ -19,7 +19,7 @@ projects_data = [
         "title": "Pizza Shop Sales Analysis",
         "tech": "MySQL, Power BI",
         "description": "End-to-end SQL project to track daily sales, customer preferences, and inventory turnover. Optimized order processing insights by identifying peak hours and best-selling product combinations.",
-        "image_file": "pizza sales project.png"
+        "image_file": "pizzasalesproject.png"
     },
     {
         "title":"Medical Whole Sale Analysis",
