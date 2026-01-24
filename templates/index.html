@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        .project-img { height: 250px; object-fit: cover; }
-        section { padding: 80px 0; }
-        html { scroll-behavior: smooth; }
+        .project-img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         .btn-hover-effect {
             background-color: transparent;
@@ -24,7 +34,7 @@
             color: black !important;
             border-color: white;
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255,255,255,0.3);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
         }
 
         .social-icon {
@@ -35,10 +45,19 @@
 
         .social-icon:hover {
             transform: scale(1.1);
-            color: #0d6efd !important;
+            color: #25d366 !important;
+            /* WhatsApp Green on hover */
+        }
+
+        .badge-custom {
+            font-size: 0.75rem;
+            padding: 0.5em 0.8em;
+            margin-right: 5px;
+            border-radius: 50px;
         }
     </style>
 </head>
+
 <body class="bg-light">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -61,22 +80,94 @@
         <div class="container py-5">
             <h1 class="display-3 fw-bold">Data Analyst Portfolio</h1>
             <p class="lead mb-4 text-white-50">Insights through Python, SQL, and Power BI</p>
-            <a href="{{ url_for('static', filename='cv.pdf') }}"class="btn btn-hover-effect btn-lg fw-bold shadow px-4">Download CV</a>
+            <a href="{{ url_for('static', filename='cv.pdf') }}" class="btn btn-hover-effect btn-lg fw-bold shadow px-4">Download CV</a>
+    
+    <a href="https://wa.me/92329391034?text=Hi%20Malik%20Mannan,%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20project." 
+       target="_blank" 
+       class="btn btn-hover-effect btn-lg fw-bold shadow px-4"> Hire Me
+    </a>
+</div>
         </div>
+        
     </header>
+    <section id="expert-summary" class="bg-white">
+        <div class="container" data-aos="fade-up">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-dark">What I Do & Why I Do It</h2>
+                <div class="bg-primary mx-auto" style="height: 4px; width: 60px; border-radius: 2px;"></div>
+            </div>
 
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-6">
+                    <h3 class="fw-bold text-primary mb-3">Turning Raw Data into Strategic Decisions</h3>
+                    <p class="lead text-muted">
+                        My passion goes beyond just looking at numbers; it’s about discovering the <strong>"Business
+                            Story"</strong> hidden within them.My mission is to empower
+                        companies to make strategic, data-driven decisions. </p>
+                    <p class="text-secondary">
+                        I don’t just build dashboardsI simplify complex datasets to provide business owners with a
+                        clear vision of their profitability and untapped growth opportunities. </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <div class="p-4 border rounded shadow-sm text-center bg-light h-100">
+                                <i class="fas fa-chart-line fs-1 text-primary mb-3"></i>
+                                <h5 class="fw-bold">Data Visualization</h5>
+                                <p class="small text-muted">Creating interactive Power BI dashboards.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="p-4 border rounded shadow-sm text-center bg-light h-100">
+                                <i class="fas fa-database fs-1 text-success mb-3"></i>
+                                <h5 class="fw-bold">SQL Analysis</h5>
+                                <p class="small text-muted">Complex querying for deep data extraction.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="p-4 border rounded shadow-sm text-center bg-light h-100">
+                                <i class="fab fa-python fs-1 text-warning mb-3"></i>
+                                <h5 class="fw-bold">Python Automation</h5>
+                                <p class="small text-muted">Cleaning and processing data efficiently.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="p-4 border rounded shadow-sm text-center bg-light h-100">
+                                <i class="fas fa-lightbulb fs-1 text-danger mb-3"></i>
+                                <h5 class="fw-bold">Business Insights</h5>
+                                <p class="small text-muted">Predicting trends and identifying risks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="projects" class="container">
         <h2 class="text-center mb-5 fw-bold text-dark">My Recent Projects</h2>
         <div class="row g-4">
             {% for project in projects %}
             <div class="col-md-6 col-lg-4" data-aos="zoom-in">
-                <div class="card h-100 shadow-sm border-0">
-                    <img src="{{ url_for('static', filename='images/' + project.image_file) }}" class="card-img-top project-img" alt="Project Image">
+                <div class="card h-100 shadow-sm border-0 overflow-hidden">
+                    <div class="project-media">
+                        <video width="100%" height="250" controls class="card-img-top" style="object-fit: cover;"
+                            preload="metadata"
+                            poster="{{ url_for('static', filename='images/' + project.image_file) }}">
+                            <source src="{{ url_for('static', filename='videos/' + project.video_file) }}"
+                                type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title fw-bold text-primary">{{ project.title }}</h5>
                         <p class="card-text text-muted small">{{ project.description }}</p>
                         <hr>
-                        <p class="mb-0 small text-dark"><strong>Tools:</strong> {{ project.tech }}</p>
+                        <div class="mt-2">
+                            {% set tools = project.tech.split(',') %}
+                            {% for tool in tools %}
+                            <span class="badge bg-dark text-white badge-custom shadow-sm">{{ tool.strip() }}</span>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,72 +175,92 @@
         </div>
     </section>
 
-    <section id="about" class="bg-white border-top border-bottom">
+    <section id="about" class="bg-secondary-subtle border-top border-bottom">
         <div class="container py-5" data-aos="fade-up">
             <div class="row g-5">
                 <div class="col-md-6">
                     <h2 class="fw-bold mb-4 border-bottom pb-2">About Me</h2>
-                    <p class="lead text-muted">I am a passionate Data Analyst dedicated to transforming complex datasets into actionable business insights.</p>
-                    <h4 class="mt-4 fw-bold">Education</h4>
+                    <p class="lead text-muted">
+                        I am a data-driven professional specializing in <strong>MySQL Database Management</strong> and
+                        <strong>Interactive Data Visualization</strong>.
+                    </p>
+                    <p class="text-secondary">
+                        My expertise lies in writing complex SQL queries to extract deep business insights and using
+                        Python to streamline data processing workflows. I bridge the gap between technical data and
+                        executive decision-making.
+                    </p>
+                    <h4 class="mt-4 fw-bold">Core Competencies</h4>
                     <ul class="list-unstyled">
-                        <li class="mb-2">
-                            <i class="fas fa-graduation-cap text-primary me-2"></i>
-                            <strong>Bachelor's Degree</strong> - University Of Karachi (UBIT) (2025)
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Relational Database Design (MySQL)
                         </li>
-                        <li class="small text-muted ms-4">Relevant Courses: Statistics, SQL, Python for Data Science</li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> End-to-End Data Pipeline Management
+                        </li>
+                        <li><i class="fas fa-check-circle text-primary me-2"></i> Statistical Analysis & Reporting</li>
                     </ul>
                 </div>
-                <div class="col-md-6">
-                    <h2 class="fw-bold mb-4 border-bottom pb-2">Contact Details</h2>
-                    <p class="mb-3">📧 <strong>Email:</strong> <a href="mailto:malikmannan1133@gmail.com" class="text-decoration-none text-muted">malikmannan1133@gmail.com</a></p>
-                    <p class="mb-3">📱 <strong>Phone:</strong> <a href="tel:+92329391034" class="text-decoration-none text-muted">+92 329 391034</a></p>
-                    <p class="mb-3">📍 <strong>Location:</strong> Karachi, Pakistan</p>
-                </div>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <i class="fas fa-graduation-cap text-primary me-2"></i>
+                        <strong>Bachelor's Degree</strong> - University Of Karachi (UBIT) (2025)
+                    </li>
+                    <li class="small text-muted ms-4">Relevant Courses: Statistics, SQL, Python for Data Science
+                    </li>
+                </ul>
             </div>
+            <div class="col-md-6">
+                <h2 class="fw-bold mb-4 border-bottom pb-2">Contact Details</h2>
+                <p class="mb-3">📧 <strong>Email:</strong> <a href="mailto:malikmannan1133@gmail.com"
+                        class="text-decoration-none text-muted">malikmannan1133@gmail.com</a></p>
+                <p class="mb-3">📱 <strong>Phone:</strong> <a href="tel:+92329391034"
+                        class="text-decoration-none text-muted">+92 329 391034</a></p>
+                <p class="mb-3">📍 <strong>Location:</strong> Karachi, Pakistan</p>
+            </div>
+        </div>
         </div>
     </section>
 
     <footer class="bg-dark text-white text-center py-5">
-    <div class="container">
-        <h4 class="mb-5 fw-bold">Let's Connect</h4>
-        
-        <div class="row justify-content-center g-4">
-            <div class="col-6 col-md-2">
-                <a href="https://www.linkedin.com/in/malik-mannan-7560933a3/" target="_blank" class="social-icon text-white text-decoration-none">
-                    <i class="fab fa-linkedin fs-1 mb-2"></i>
-                    <p class="small">LinkedIn</p>
-                </a>
+        <div class="container">
+            <h4 class="mb-5 fw-bold">Let's Connect</h4>
+            <div class="row justify-content-center g-4">
+                <div class="col-6 col-md-2">
+                    <a href="https://www.linkedin.com/in/malik-mannan-7560933a3/" target="_blank"
+                        class="social-icon text-white">
+                        <i class="fab fa-linkedin fs-1 mb-2"></i>
+                        <p class="small">LinkedIn</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-2">
+                    <a href="https://github.com/malikmannan1133-cmd/End-to-End-Data-Analysis-Portfolio" target="_blank"
+                        class="social-icon text-white">
+                        <i class="fab fa-github fs-1 mb-2"></i>
+                        <p class="small">GitHub</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-2">
+                    <a href="https://wa.me/92329391034" target="_blank" class="social-icon text-white">
+                        <i class="fab fa-whatsapp fs-1 mb-2 text-success"></i>
+                        <p class="small">WhatsApp</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-2">
+                    <a href="https://www.upwork.com/freelancers/~014c085217c5493bbb" target="_blank"
+                        class="social-icon text-white">
+                        <i class="fa-brands fa-upwork fs-1 mb-2"></i>
+                        <p class="small">Upwork</p>
+                    </a>
+                </div>
             </div>
-            
-            <div class="col-6 col-md-2">
-                <a href="https://github.com/malikmannan1133-cmd/End-to-End-Data-Analysis-Portfolio" target="_blank" class="social-icon text-white text-decoration-none">
-                    <i class="fab fa-github fs-1 mb-2"></i>
-                    <p class="small">GitHub</p>
-                </a>
-            </div>
-            
-            <div class="col-6 col-md-2">
-                <a href="https://www.upwork.com/freelancers/~014c085217c5493bbb" target="_blank" class="social-icon text-white text-decoration-none">
-                    <i class="fa-brands fa-upwork fs-1 mb-2"></i>
-                    <p class="small">Upwork</p>
-                </a>
-            </div>
-            
-            <div class="col-6 col-md-2">
-                <a href="https://www.fiverr.com/users/malikmannan503/seller_dashboard" target="_blank" class="social-icon text-white text-decoration-none">
-                    <i class="fas fa-briefcase fs-1 mb-2"></i> <p class="small">Fiverr</p>
-                </a>
-            </div>
+            <hr class="bg-secondary w-25 mx-auto mt-5">
+            <p class="mb-0 mt-3 small text-secondary">Created by Malik Mannan | 2026</p>
         </div>
+    </footer>
 
-        <hr class="bg-secondary w-25 mx-auto mt-5">
-        <p class="mb-0 mt-3 small text-secondary">Created by Malik Mannan | 2026</p>
-    </div>
-</footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
     </script>
 </body>
+
 </html>
