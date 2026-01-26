@@ -87,8 +87,8 @@
             <h1 class="display-1 fw-bold mb-3" style="text-shadow: 2px 2px 10px rgba(0,0,0,0.5);">Data Analyst </h1>
             <p class="lead mb-5 text-light opacity-75">Insights through Python, SQL, and Power BI</p>
             <div class="d-flex justify-content-center gap-3">
-                <a href="static/cv.pdf" download="Malik_Mannan_CV"
-                    class="btn btn-outline-light btn-lg px-4 fw-bold btn-hover-effect">
+                <a href="{{ url_for('static', filename='cv.pdf') }}" download="Malik_Mannan_CV"
+                    class="btn btn-outline-light btn-lg px-4 fw-bold">
                     <i class="fas fa-download me-2"></i>Download CV
                 </a>
                 <a href="https://wa.me/923293931034?text=Hi%20Malik%20Mannan,%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20data%20project!"
